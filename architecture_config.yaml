@@ -1,0 +1,30 @@
+PARAMS_TO_THE_ARCHITECTURE:
+  model_name: InceptionTime
+  params:
+    bottleneck_channels: 1
+    in_channels: 12
+    kernel_sizes:
+    - 10
+    - 50
+    - 200
+    num_blocks: 3
+    num_pred_classes: 8
+    out_channels: 100
+    use_residuals: true
+PARAMS_TO_TRAINING_MODULE:
+  batch_accumulation: 16
+  batch_size: 2
+  checkpoints_tb_outputs_name: tb_logs
+  dataset: NONE
+  device: 1
+  experiment_name: tsc_models
+  experiment_path: /datasets/ecg/first_data
+  learning_rate: 0.001
+  loss: BCEWithLogitsLoss
+  num_classes: 8
+  num_leads: 12
+  optimizer: Adam
+  random_state: 42
+  sample_length: 72000
+  sampler: BalancedBatchSampler
+  validation_size: 0.3

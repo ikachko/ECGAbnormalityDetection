@@ -1,0 +1,31 @@
+PARAMS_TO_TRAINING_MODULE:
+  # ___GENERAL___
+  experiment_path: /datasets/ecg/tf_data/
+  checkpoints_tb_outputs_name: tb_logs
+  experiment_name: rnn_models
+  device: 2
+  random_state: 42
+
+  # ___ECG SIGNAL___
+  num_classes: 9
+
+  # ___DATASET___
+  dataset: None
+  sampler:
+
+  # ___TRAINING___
+  validation_size: 0.3 # percentage from training data, stratified split(on "Disease" column
+  batch_size: 10
+  optimizer: Adam
+  learning_rate: 0.001
+  loss: BCEWithLogitsLoss
+
+
+PARAMS_TO_THE_ARCHITECTURE:
+  model_name: BidirectionalLSTMModel
+  params:
+      input_size: 12
+      output_size: 9
+      hidden_dim: 100
+      n_layers: 2
+      drop_prob: 0.5
